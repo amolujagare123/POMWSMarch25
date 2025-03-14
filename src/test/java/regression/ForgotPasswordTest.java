@@ -1,25 +1,26 @@
+package regression;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.ForgotPassword;
 import pages.Login;
 
-public class LoginTest {
-
+public class ForgotPasswordTest {
 
     @Test
-    public void loginTest()
+    public void forgotPassswordTest()
     {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://stock.scriptinglogic.in/");
-        Login login = new Login(driver);
 
-        login.setTxtUser("admin");
-        login.setTxtPassword("admin");
-        login.clickBtnLogin();
-        Assert.assertEquals(driver.getTitle(),"POSNIC - Dasboard");
+        Login login = new Login(driver);
+        login.clickForgotPassword();
+
+        ForgotPassword forgotPassword = new ForgotPassword(driver);
+        forgotPassword.setTxtMovieName("Chhava");
+        forgotPassword.clickSubmit();
+
     }
 }
